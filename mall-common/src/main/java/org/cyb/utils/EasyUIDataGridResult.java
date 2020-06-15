@@ -35,4 +35,5 @@ public class EasyUIDataGridResult {
 		this.rows = rows;
 	}
 	
+	
 }
