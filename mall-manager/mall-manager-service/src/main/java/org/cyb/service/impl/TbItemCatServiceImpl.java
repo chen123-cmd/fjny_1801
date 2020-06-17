@@ -24,7 +24,7 @@ public class TbItemCatServiceImpl implements TbItemCatService {
 
 	@Override
 	public List<EasyUITreeNodeBean> getTbItemCatList(Long parendId) {
-		
+		System.out.println("getTbItemCatList");
 		TbItemCatExample example = new TbItemCatExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andParentIdEqualTo(parendId);

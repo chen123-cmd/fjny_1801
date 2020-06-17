@@ -21,6 +21,7 @@ public class TbItemController {
 		
 	@Autowired
 	public TbItemService tbItemService;
+	@Autowired
 	public TbItemCatService tbItemCatService;
 	
 	@RequestMapping("/getItem")
@@ -43,7 +44,6 @@ public class TbItemController {
 	@RequestMapping("/cat/list")
 	@ResponseBody
 	public List<EasyUITreeNodeBean> getItemCatList(@RequestParam(value ="id",defaultValue = "0") long parentId) {
-		System.out.println("parentId:" + parentId);
 		return tbItemCatService.getTbItemCatList(parentId);
 		
 	}
