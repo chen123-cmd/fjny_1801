@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <title></title>
 <!--easyui-->
-<script src="../easyui/jquery.min.js" type="text/javascript"
+<script src="${pageContext.request.contextPath}/easyui/jquery.min.js" type="text/javascript"
 	charset="utf-8"></script>
-<script src="../easyui/jquery.easyui.min.js" type="text/javascript"
+<script src="${pageContext.request.contextPath}/easyui/jquery.easyui.min.js" type="text/javascript"
 	charset="utf-8"></script>
-<script src="../easyui/locale/easyui-lang-zh_CN.js"
+<script src="${pageContext.request.contextPath}/easyui/locale/easyui-lang-zh_CN.js"
 	type="text/javascript" charset="utf-8"></script>
 <!--开发-->
 <!--<link rel="stylesheet" href="../easyui/themes/gray/easyui.css">
@@ -18,15 +18,15 @@
 		<link rel="stylesheet" href="css/superBlue.css" id="themeCss">
 		<script src="js/super.js" type="text/javascript" charset="utf-8"></script>-->
 <!--测试dist-->
+<link rel="stylesheet" type="text/css" href="css/fjny.css" />
 <link rel="stylesheet" type="text/css"
-	href="easyui/themes/super/css/font-awesome.min.css" />
+	href="${pageContext.request.contextPath}/easyui/themes/super/css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css"
-	href="easyui/themes/super/superBlue.css" id="themeCss" />
+	href="${pageContext.request.contextPath}/easyui/themes/super/superBlue.css" id="themeCss" />
 <script type="text/javascript" charset="utf-8"
-	src="easyui/themes/super/super.js"></script>
-
-
-<script src="js/superDemo.js" type="text/javascript" charset="utf-8"></script>
+	src="${pageContext.request.contextPath}/easyui/themes/super/super.js"></script>
+<script src="${pageContext.request.contextPath}/js/superDemo.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="js/common.js"></script>
 </head>
 <body id="main" class="easyui-layout">
 	<div data-options="region:'north',border:false" class="super-north">
@@ -68,48 +68,14 @@
 		<!--左侧导航-->
 		<div class="easyui-accordion"
 			data-options="border:false,fit:true,selected:true">
-			<div title="布局" data-options="iconCls:'fa fa-desktop'">
-				<ul>
-					<li data-url='example/panel.html'>面板</li>
-					<li data-url='example/tabs.html'>选项卡</li>
-					<li data-url='example/accordion.html'>分类</li>
-					<li data-url='example/layout.html'>布局</li>
-				</ul>
-			</div>
-			<div title="基本元素" data-options="iconCls:'fa fa-wpforms'">
-				<ul>
-					<li data-url='example/button.html'>按钮</li>
-					<li data-url='example/form.html'>表单</li>
-					<li data-url="example/menu.html">菜单</li>
-					<li data-url='example/other.html'>其他</li>
-				</ul>
-			</div>
-			<div title="窗口" data-options="iconCls:'fa fa-window-maximize'">
-				<ul>
-					<li data-url='example/window.html'>窗口</li>
-					<li data-url='example/dialog.html'>对话框</li>
-					<li data-url="example/message.html">消息窗口</li>
-				</ul>
-			</div>
-			<!-- <div title="表格和树" data-options="iconCls:'fa fa-table'">
-				<ul>
-					<li data-url='example/datagrid.html'>表格</li>
-					<li data-url='example/tree.html'>树</li>
-				</ul>
-			</div> -->
+			
 			<div title="商品管理" data-options="iconCls:'fa fa-table'">
 				<ul>
-					<li data-url='item-list'>商品列表</li>
+					<li id = "item-list" data-url='item-list'>商品列表</li>
+					<li id = "item-add"  data-url='item-add'>添加商品</li>
 				</ul>
 			</div>
-			<div title="扩展" data-options="iconCls:'fa fa-sitemap'">
-				<ul>
-					<li data-url='pagination.html'>嘿嘿嘿</li>
-				</ul>
-			</div>
-
 		</div>
-
 	</div>
 	<div data-options="region:'center'" style="padding-top: 2px;">
 		<!--主要内容-->
@@ -127,7 +93,6 @@
 				class="fa fa-caret-right"></i></span>
 		</div>
 	</div>
-
 	<!--主题设置弹窗-->
 	<div id="win">
 		<div class="themeItem">
@@ -159,6 +124,5 @@
 			</ul>
 		</div>
 	</div>
-
 </body>
 </html>

@@ -115,7 +115,7 @@
       #{image,jdbcType=VARCHAR}, #{cid,jdbcType=BIGINT}, #{status,jdbcType=TINYINT}, 
       #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="org.cyb.pojo.TbItem" >
+  <insert id="insertSelective" keyProperty="id" parameterType="org.cyb.pojo.TbItem" >
     insert into tb_item
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
