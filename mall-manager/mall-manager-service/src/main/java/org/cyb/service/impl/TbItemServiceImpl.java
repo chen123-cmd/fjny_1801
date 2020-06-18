@@ -5,8 +5,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.cyb.mapper.TbItemDescMapper;
 import org.cyb.mapper.TbItemMapper;
 import org.cyb.pojo.TbItem;
+import org.cyb.pojo.TbItemDesc;
 import org.cyb.pojo.TbItemExample;
 import org.cyb.service.TbItemService;
 import org.cyb.utils.EasyUIDataGridResult;
@@ -22,7 +24,10 @@ public class TbItemServiceImpl implements TbItemService {
 
 	@Resource
 	public TbItemMapper tbItemMapper;
+	@Resource
+	public TbItemDescMapper tbItemDescMapper;
 
+	//获取商品列表
 	@Override
 	public EasyUIDataGridResult getTbItemList(Integer page, Integer rows) {
 		// 分页插件
@@ -38,8 +43,9 @@ public class TbItemServiceImpl implements TbItemService {
 		return easyUIDataGridResult;
 	}
 
+	//添加商品
 	@Override
-	public FjnyResult saveTbItem(TbItem tbItem) {
+	public FjnyResult saveTbItem(TbItem tbItem,String desc) {
 		long genItemId = IDUtils.genItemId();
 		tbItem.setId(genItemId);
 		tbItem.setCreated(new Date());
@@ -50,7 +56,26 @@ public class TbItemServiceImpl implements TbItemService {
 		if (insertSelective < 0) {
 			return FjnyResult.build(500, "添加商品失敗");
 		}
+		
+		//商品描述添加
+		TbItemDesc tbItemDesc = new TbItemDesc();
+		tbItemDesc.setItemId(tbItem.getId());
+		tbItemDesc.setItemDesc(desc);
+		tbItemDesc.setCreated(new Date());
+		tbItemDesc.setUpdated(new Date());
+		tbItemDescMapper.insertSelective(tbItemDesc);
+
 		return FjnyResult.ok(tbItem);
+	}
+
+	//删除商品
+	@Override
+	public FjnyResult deleteTbItem(TbItem tbItem) {
+		TbItemExample example =new TbItemExample();
+		TbItemExample.Criteria criteria = example.createCriteria();
+		criteria.andIdEqualTo(tbItem.getId());
+		tbItemMapper.deleteByExample(example);
+		return FjnyResult.ok();
 	}
 
 	

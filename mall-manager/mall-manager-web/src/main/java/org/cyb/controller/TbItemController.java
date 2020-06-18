@@ -24,6 +24,7 @@ public class TbItemController {
 	@Autowired
 	public TbItemCatService tbItemCatService;
 	
+	//查询商品
 	@RequestMapping("/getItem")
 	@ResponseBody
 	public EasyUIDataGridResult getTbItemList(@RequestParam(defaultValue = "1")
@@ -33,20 +34,30 @@ public class TbItemController {
 		
 	}
 	
+	//添加商品
 	@RequestMapping(value = "/save",method = RequestMethod.POST)
 	@ResponseBody
-	public FjnyResult saveTbItem(TbItem tbItem){
+	public FjnyResult saveTbItem(TbItem tbItem,String desc){
 		System.out.println("========saveTbItem=========");
-		tbItemService.saveTbItem(tbItem);
+		tbItemService.saveTbItem(tbItem,desc);
 		return FjnyResult.ok();
 	}
 	
+	//类目选择
 	@RequestMapping("/cat/list")
 	@ResponseBody
 	public List<EasyUITreeNodeBean> getItemCatList(@RequestParam(value ="id",defaultValue = "0") long parentId) {
 		System.out.println("parentId:" + parentId);
 		return tbItemCatService.getTbItemCatList(parentId);
 		
+	}
+	
+	///删除商品
+	@RequestMapping("/deleteItem")
+	@ResponseBody
+	public FjnyResult deleteitem(TbItem tbItem) {
+		System.out.println("controoler：删除商品");
+		return tbItemService.deleteTbItem(tbItem);
 	}
 
 }
