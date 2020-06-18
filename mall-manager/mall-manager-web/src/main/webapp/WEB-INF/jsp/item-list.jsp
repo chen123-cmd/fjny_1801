@@ -24,6 +24,7 @@
 				text : '添加',
 				iconCls : 'fa fa-plus',
 				handler : function() {
+					$("#item-add").click();
 				}
 			}, {
 				text : '编辑',
@@ -84,9 +85,7 @@
 				title : '图片',
 				width : 100,
 				align : 'center',
-				formatter : function(value, row) {
-					return "<img src ="+value+" width='100px' height='100px'>"
-				}
+				formatter : TT.formatImg
 			}, {
 				field : 'cid',
 				title : '类目',

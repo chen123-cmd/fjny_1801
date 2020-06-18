@@ -41,6 +41,13 @@ var TT = FJNY = {
 		}
 		return "";
 	},
+	// 格式化连接
+	formatImg : function(val,row){
+		if(val){
+			return "<img src='"+val+"' width='100px' height = '70'>查看</a>";			
+		}
+		return "";
+	},
 	// 格式化价格
 	formatPrice : function(val,row){
 		return (val/1000).toFixed(2);
@@ -91,7 +98,7 @@ var TT = FJNY = {
 							var imgArray = [];
 							KindEditor.each(urlList, function(i, data) {
 								imgArray.push(data.url);
-								form.find(".pics ul").append("<li><a href='"+data.url+"' target='_blank'><img src='"+data.url+"' width='80' height='50' /></a></li>");
+								form.find(".pics ul").append("<li style=\"float: left;\"><a href='"+data.url+"' target='_blank'><img src='"+data.url+"' width='80' height='50' /></a></li>");
 							});
 							form.find("[name=image]").val(imgArray.join(","));
 							editor.hideDialog();

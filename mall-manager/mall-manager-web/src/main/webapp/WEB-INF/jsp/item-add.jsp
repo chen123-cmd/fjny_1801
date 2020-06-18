@@ -8,7 +8,7 @@
 	src="/js/kindeditor-4.1.10/lang/zh_CN.js"></script>
 <style type="text/css">
 <
-style type ="text/css">.form-item {
+style type ="text /css">.form-item {
 	margin-bottom: 15px;
 	width: 100%;
 	float: left;
@@ -55,10 +55,16 @@ style type ="text/css">.form-item {
 				class="easyui-textbox" type="text" name="barcode"
 				data-options="validType:'length[1,30]'" />
 		</div>
-		<!-- 	<div class="form-item">
-					<label for="" class="label-top">文件选择：</label>
-					<input class="easyui-filebox" data-options="buttonText:'上传图片',buttonIcon:'fa fa-upload'">
-				</div> -->
+		<div class="form-item">
+			<label for="" class="label-top">文件选择：</label> <input
+				class="easyui-filebox"
+				data-options="buttonText:'上传图片',buttonIcon:'fa fa-upload'">
+		</div>
+		<div class="form-item">
+			<label for="" class="label-top">商品图片:</label> <a
+				href="javascript:void(0)" class="easyui-linkbutton picFileUpload">上传图片</a>
+			<input type="hidden" name="image" />
+		</div>
 		<div>
 			<a href="javascript:void(0)" class="easyui-linkbutton warning"
 				onclick="clearForm()">取消</a> <a href="javascript:void(0)"
