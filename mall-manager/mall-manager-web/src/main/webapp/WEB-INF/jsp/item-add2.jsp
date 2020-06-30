@@ -63,28 +63,23 @@ style type ="text /css">.form-item {
 		<div class="form-item">
 			<label for="" class="label-top">商品图片:</label> <a
 				href="javascript:void(0)" class="easyui-linkbutton picFileUpload">上传图片</a>
-			<div>
-				<input type="hidden" name="image" /> <br /> <br /></div>
-			</div>
-			<br />
-			<div class="form-item">
-				<label for="" class="label-top" style="align-content: center;">商品描述:</label>
-				<textarea style="width: 800px; height: 300px; visibility: hidden;"
-					name="desc">&lt;strong&gt;HTML内容&lt;/strong&gr;</textarea>
-			</div>
-
-		<div class="form-item params hide">
-			<label for="" class="label-top">商品规格:</label>
-			 <div>#itemAddForm .params div</div>
+				<div>
+			<input type="hidden" name="image" />
+			<br /> <br />
 		</div>
-		<input type="hidden" name="itemParams"/>
+			<br /> 
+		<div class="form-item">
+			<label for="" class="label-top" style="align-content: center;">商品描述:</label>
+			<textarea style="width: 800px; height: 300px; visibility: hidden;"
+				name="desc">&lt;strong&gt;HTML内容&lt;/strong&gr;</textarea>
+		</div>
 
 
-			<div>
-				<a href="javascript:void(0)" class="easyui-linkbutton warning"
-					onclick="clearForm()">取消</a> <a href="javascript:void(0)"
-					class="easyui-linkbutton success" onclick="submitForm()">添加</a>
-			</div>
+		<div>
+			<a href="javascript:void(0)" class="easyui-linkbutton warning"
+				onclick="clearForm()">取消</a> <a href="javascript:void(0)"
+				class="easyui-linkbutton success" onclick="submitForm()">添加</a>
+		</div>
 	</form>
 	<script type="text/javascript">
 		var itemAddEditor;
@@ -101,33 +96,8 @@ style type ="text /css">.form-item {
 			});
 		});
 
-
-		
 		//提交表单
 		function submitForm() {
-			//提取商品规格数据
-			debugger;
-			var paramJson = [];
-			$("#itemAddForm .params li").each(function(i, e) {
-				var trs = $(e).find("tr");
-				var group = trs.eq(0).text();
-				var ps = [];
-				for (var i = 1; i < trs.length; i++) {
-					var tr = trs.eq(i);
-					ps.push({
-						"k" : $.trim(tr.find("td").eq(0).find("span").text()),
-						"v" : $.trim(tr.find("input").val())
-					});
-				}
-				paramJson.push({
-					"group" : group,
-					"params" : ps
-				});
-			});
-			//把json对象转换成字符串 
-			paramJson = JSON.stringify(paramJson);
-			$("#itemAddForm [name=itemParams]").val(paramJson);
-
 			//有效性验证
 			if (!$('#itemAddForm').form('validate')) {
 				$.messager.alert('提示', '表单还未填写完成!');
@@ -144,7 +114,6 @@ style type ="text /css">.form-item {
 							function() {
 								$('#item-list').click();
 							});
-					$('#itemAddForm').form('reset');
 				}
 			});
 		}

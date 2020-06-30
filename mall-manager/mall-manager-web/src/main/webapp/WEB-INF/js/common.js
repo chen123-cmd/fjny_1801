@@ -59,7 +59,7 @@ var TT = FJNY = {
         } else if(val == 2){
         	return '<span style="color:red;">下架</span>';
         } else {
-        	return '未知';
+        	return '已删除';
         }
     },
     
@@ -198,6 +198,7 @@ var TT = FJNY = {
     
     changeItemParam : function(node,formId){
     	$.getJSON("/item/param/query/itemcatid/" + node.id,function(data){
+    		debugger;
 			  if(data.status == 200 && data.data){
 				 $("#"+formId+" .params").show();
 				 var paramData = JSON.parse(data.data.paramData);
@@ -215,10 +216,10 @@ var TT = FJNY = {
 					 html+="</li></table>";
 				 }
 				 html+= "</ul>";
-				 $("#"+formId+" .params td").eq(1).html(html);
+				 $("#"+formId+" .params div").html(html);
 			  }else{
 				 $("#"+formId+" .params").hide();
-				 $("#"+formId+" .params td").eq(1).empty();
+				 $("#"+formId+" .params div").empty();
 			  }
 		  });
     },

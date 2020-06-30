@@ -63,7 +63,7 @@
 			</div>
 		</div>
 	</div>
-	<div data-options="region:'west',title:'MAIN NAVIGATION',border:false"
+	<div data-options="region:'west',title:'电子商城',border:false"
 		class="super-west">
 		<!--左侧导航-->
 		<div class="easyui-accordion"
@@ -73,6 +73,7 @@
 				<ul>
 					<li id = "item-list" data-url='item-list'>商品列表</li>
 					<li id = "item-add"  data-url='item-add'>添加商品</li>
+					<li id = "item-param-list"  data-url='item-param-list'>规格参数</li>
 				</ul>
 			</div>
 		</div>
